@@ -6,4 +6,3 @@ keras
 streamlit
 scikit-learn
 matplotlib
-sys
