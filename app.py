@@ -148,7 +148,7 @@ for _ in range(7):
     last_100_days = np.append(last_100_days, predicted_price)[1:].reshape(-100, 1)  # Ensure it's reshaped back to (-100, 1)
 
 # Plotting the predicted prices
-st.subheader('Predicted Close Price ' + tick.upper() + ' for next 7 days')
+st.subheader('Predicted Close Price ' + tick.upper() + ' for Next 7 Days')
 fig5 = plt.figure(figsize=(10,6))
 days = range(1, 8)
 plt.plot(days, predicted_prices, 'r', label='Predicted Close Price')
@@ -182,7 +182,7 @@ for _ in range(30):
     last_100_days_30 = np.append(last_100_days_30, predicted_price_30)[1:].reshape(-100, 1)  # Ensure it's reshaped back to (-100, 1)
 
 # Plotting the predicted prices
-st.subheader('Predicted Close Price ' + tick.upper() + ' for next 30 days')
+st.subheader('Predicted Close Price ' + tick.upper() + ' for Next 30 Days')
 fig6 = plt.figure(figsize=(10,6))
 days_30 = range(1, 31)
 plt.plot(days_30, predicted_prices_30, 'r', label='Predicted Close Price')
