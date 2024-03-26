@@ -2,8 +2,8 @@ numpy
 pandas
 yfinance
 datetime
+tensorflow
 keras
 streamlit
 scikit-learn
 matplotlib
-tensorflow
