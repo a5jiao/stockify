@@ -1,5 +1,5 @@
 # stockify
-# Stock Price Prediction Using LSTM Neural Networks
+## Stock Price Prediction Using LSTM Neural Networks
 A stock market predictor using advanced machine learning techniques! Focused on building a robust model capable of predicting the future stock prices of any stock, leveraging the power of Long Short-Term Memory (LSTM) neural networks through Keras/TensorFlow.
 
 Included in this repository is the .ipynb file, which is where the ML model was trained. The .keras file attached is the saved Deep Learning model created as a result from the notebook file. I have also included a app.py file which uses Streamlit to effortlessly deploy the application into a webapp.
