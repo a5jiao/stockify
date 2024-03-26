@@ -6,7 +6,7 @@ Included in this repository is the .ipynb file, which is where the ML model was 
 
 ## Project Overview
 
-We start by gathering historical stock data of the selected ticker from January 1, 2012 (or the latest date), up to the current date. Utilizing the `yfinance` library, we download this extensive dataset, which serves as the foundation for our predictive modeling.
+We start by gathering historical stock data of Alphabet Inc. from January 1, 2012 to March 25, 2024. Utilizing the `yfinance` library, we download this extensive dataset, which serves as the foundation for our predictive modeling.
 
 We then move on to exploring the data, particularly focusing on the 'Close' price, which is our target variable. To gain deeper insights and identify potential trends, we calculate and visualize the moving averages over 100 and 200 days.
 
@@ -28,10 +28,11 @@ Our analysis culminates in a visual representation, plotting both predicted and 
 
 Taking a step further, we utilize our model to predict the stock prices for the upcoming week. This forward-looking feature provides valuable insights, potentially aiding investors in making informed decisions.
 
+This feature now works for any stock listed in the market, with enough data points to make our analysis. We finished training our model on the extensive data set of Alphabet Inc's stock, now it is ready to take on anything.
+
 ## Conclusion and Future Work
 
-This project demonstrates the potential of LSTM neural networks in the realm of stock market predictions. I encourage fellow developers and enthusiasts to experiment with different stocks, adjust the model parameters, and explore further enhancements to the prediction accuracy. The possibilities are limitless, and I am excited to see how this project evolves within the community.
-
+This project demonstrates the potential of LSTM neural networks in the realm of stock market predictions. I encourage fellow developers and enthusiasts to experiment with different stocks, adjust the model parameters, and explore further enhancements to the prediction accuracy.
 
 ---
 
