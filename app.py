@@ -192,5 +192,4 @@ plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig6)
 
-
-
+st.write("&copy; 2024 Alfred Jiao")
