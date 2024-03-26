@@ -2,6 +2,8 @@
 # Stock Price Prediction Using LSTM Neural Networks
 A stock market predictor using advanced machine learning techniques! Focused on building a robust model capable of predicting the future stock prices of any stock, leveraging the power of Long Short-Term Memory (LSTM) neural networks through Keras/TensorFlow.
 
+Included in this repository is the .ipynb file, which is where the ML model was trained. The .keras file attached is the saved Deep Learning model created as a result from the notebook file. I have also included a app.py file which uses Streamlit to effortlessly deploy the application into a webapp.
+
 ## Project Overview
 
 We start by gathering historical stock data of the selected ticker from January 1, 2012 (or the latest date), up to the current date. Utilizing the `yfinance` library, we download this extensive dataset, which serves as the foundation for our predictive modeling.
