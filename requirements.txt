@@ -4,6 +4,6 @@ yfinance
 datetime
 keras
 streamlit
-sklearn
+scikit-learn
 matplotlib
 sys
