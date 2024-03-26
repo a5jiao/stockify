@@ -192,7 +192,4 @@ plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig6)
 
-df_30 = pd.DataFrame({'Day': days_30, 'Close': predicted_price_30})
-display(df_30)
-
 st.write("&copy; 2024 Alfred Jiao")
