@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import sys
 
 # Load model
-model = load_model('/Users/aj/Projects/Stock Prediction Model.keras')
+model = load_model('Stock Prediction Model.keras')
 
 st.header('Stock Market Predictor')
 
