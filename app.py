@@ -12,7 +12,7 @@ import sys
 # Load model
 model = load_model('Stock Prediction Model.keras')
 
-st.header('Stock Market Predictor')
+st.header('Stockify: A Stock Market Predictor!')
 
 # Ticker input
 tick = st.text_input('Enter Stock Ticker', 'GOOG')
