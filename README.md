@@ -4,6 +4,8 @@ A stock market predictor using advanced machine learning techniques! Focused on 
 
 Included in this repository is the .ipynb file, which is where the ML model was trained. The .keras file attached is the saved Deep Learning model created as a result from the notebook file. I have also included a app.py file which uses Streamlit to effortlessly deploy the application into a webapp.
 
+When I have more time, I will implement a prediction far into the future so we can predict the long term behaviour of selected stocks.
+
 ## Project Overview
 
 We start by gathering historical stock data of Alphabet Inc. from January 1, 2012 to March 25, 2024. Utilizing the `yfinance` library, we download this extensive dataset, which serves as the foundation for our predictive modeling.
