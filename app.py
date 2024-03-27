@@ -203,8 +203,6 @@ plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig6)
 
-""" # Display the DataFrame in your Streamlit app
-st.subheader('Predicted Close Price of ' + tick.upper() + ' DataFrame for 30 Days')
-st.dataframe(predicted_prices_df_30) """
+
 
 st.write("&copy; 2024 Alfred Jiao")
