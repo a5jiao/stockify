@@ -130,8 +130,8 @@ last_100_days = data_train_scale[-100:]  # Keep it in the original format for sl
 # Initialize a list to store the predictions
 predicted_prices = []
 
-# Predict the next 100 days
-for _ in range(100):
+# Predict the next 7 days
+for _ in range(7):
     # Reshape the last_100_days to fit the model input shape
     x_test = np.array([last_100_days])
     x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1))
@@ -149,11 +149,11 @@ for _ in range(100):
     last_100_days = np.append(last_100_days, predicted_price)[1:].reshape(-100, 1)  # Ensure it's reshaped back to (-100, 1)
 
 # Plotting the predicted prices
-st.subheader('Predicted Close Price of ' + tick.upper() + ' for Next 100 Days (' + cur + ')')
+st.subheader('Predicted Close Price of ' + tick.upper() + ' for Next 7 Days (' + cur + ')')
 fig5 = plt.figure(figsize=(10,6))
-days = range(1, 101)
+days = range(1, 8)
 plt.plot(days, predicted_prices, 'r', label='Predicted Close Price')
-plt.title('Predicted ' + tick + ' Prices for the Next 100 Days')
+plt.title('Predicted ' + tick + ' Prices for the Next 7 Days')
 plt.xlabel('Day')
 plt.ylabel('Price')
 plt.legend()
