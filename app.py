@@ -39,6 +39,7 @@ else:
 # Get the name of the stock
 stock = yf.Ticker(tick)
 stock_name = stock.info['longName']
+cur = stock.info['currency']
 
 st.subheader('Stock Data for ' + tick.upper() + " (" + stock_name + ")")
 st.write(data)
@@ -62,7 +63,7 @@ data_test_scale = scaler.transform(data_test)
 data_train_scale = scaler.fit_transform(data_train)
 
 # Display plots of Price vs MA50 vs MA100 vs MA200
-st.subheader('Price vs 50 Day Moving Average')
+st.subheader('Price vs 50 Day Moving Average (' + cur + ')')
 ma_50_days = data.Close.rolling(50).mean()
 fig1 = plt.figure(figsize=(10, 8))
 plt.plot(ma_50_days, 'r', label='MA50')
@@ -71,7 +72,7 @@ plt.legend()
 plt.show()
 st.pyplot(fig1)
 
-st.subheader('Price vs 50 Day MA vs 100 Day MA')
+st.subheader('Price vs 50 Day MA vs 100 Day MA (' + cur + ')')
 ma_100_days = data.Close.rolling(100).mean()
 fig2 = plt.figure(figsize=(10, 8))
 plt.plot(ma_50_days, 'r', label='MA50')
@@ -81,7 +82,7 @@ plt.legend()
 plt.show()
 st.pyplot(fig2)
 
-st.subheader('Price vs 100 Day MA vs 200 Day MA')
+st.subheader('Price vs 100 Day MA vs 200 Day MA (' + cur + ')')
 ma_200_days = data.Close.rolling(200).mean()
 fig3 = plt.figure(figsize=(10, 8))
 plt.plot(ma_100_days, 'r', label='MA100')
@@ -112,7 +113,7 @@ predict = scaler.inverse_transform(predict.reshape(-1, 1))
 y = scaler.inverse_transform(y.reshape(-1, 1))
 
 # Display predicted prices
-st.subheader('Original Price vs Predicted Price for ' + tick.upper())
+st.subheader('Original Price vs Predicted Price for ' + tick.upper() + '(' + cur + ')')
 fig4 = plt.figure(figsize=(8, 6))
 plt.plot(predict, 'r', label='Predicted Price')
 plt.plot(y, 'b', label='Original Price')
@@ -148,7 +149,7 @@ for _ in range(7):
     last_100_days = np.append(last_100_days, predicted_price)[1:].reshape(-100, 1)  # Ensure it's reshaped back to (-100, 1)
 
 # Plotting the predicted prices
-st.subheader('Predicted Close Price ' + tick.upper() + ' for Next 7 Days')
+st.subheader('Predicted Close Price of ' + tick.upper() + ' for Next 7 Days (' + cur + ')')
 fig5 = plt.figure(figsize=(10,6))
 days = range(1, 8)
 plt.plot(days, predicted_prices, 'r', label='Predicted Close Price')
@@ -181,8 +182,18 @@ for _ in range(30):
     # Update the last_100_days_30 for the next prediction
     last_100_days_30 = np.append(last_100_days_30, predicted_price_30)[1:].reshape(-100, 1)  # Ensure it's reshaped back to (-100, 1)
 
+
+# Create the DataFrame with future dates and predicted prices
+predicted_prices_df_30 = pd.DataFrame({
+    'Days': range(1, 31),
+    'Predicted Close Price (' + cur + ')': predicted_prices_30
+})
+
+predicted_prices_df_30.set_index('Days', inplace=True)
+
+
 # Plotting the predicted prices
-st.subheader('Predicted Close Price ' + tick.upper() + ' for Next 30 Days')
+st.subheader('Predicted Close Price of ' + tick.upper() + ' for Next 30 Days (' + cur + ')')
 fig6 = plt.figure(figsize=(10,6))
 days_30 = range(1, 31)
 plt.plot(days_30, predicted_prices_30, 'r', label='Predicted Close Price')
@@ -191,5 +202,9 @@ plt.xlabel('Day')
 plt.ylabel('Price')
 plt.legend()
 st.pyplot(fig6)
+
+# Display the DataFrame in your Streamlit app
+st.subheader('Predicted Close Price of ' + tick.upper() + ' DataFrame')
+st.dataframe(predicted_prices_df_30)
 
 st.write("&copy; 2024 Alfred Jiao")
